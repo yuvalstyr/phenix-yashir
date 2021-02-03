@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "phenix-302914",
+  "private_key_id": "0de0980440b39c15778de46f9a1ff1ac660cabc2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8oQ32bMfLu0zu\nOTBVyaL8d10wNnozQwPAvmUhtQASBxxbirDJQfG+CGRxKHpzrlIVCNVuYSEEUooh\n+fEBEJngzrG4nsLndJ1XhnxvuLVTQJG3B94zBUgEnWP/y2ARFi1lHxfeuVMNMN5F\n27OvkZl+JhIAZLNlRTMf98QzR+6HFg6QTsHpUNgDqi9dkuxmlNXzYwDKr39qwx9v\n9QVrtaxDoAUzByiv/GuLEq+lfbrVPg8AZKH2T3Jxxt+bKldbFKgPhao684fFbtO7\ncj88rPuG7S5suTqe8RZtLhdqkuYp37cEdmIk/99pzZYYlco2qkfhNspJ8mMIITGv\nBeifu0EbAgMBAAECggEAUzNKwFYM7n0IGs+Y1U4iGO/hZ8GvtuqpPhv86Zg3lrwS\nMwKCpdLzeRmkjBEJqfrK88I4uf4XnRt3GDNxrUGQTgt9cmx8lbDnMdL9Eh5LxJPn\nce8DgEelE3wEvrALCJ5amY7UbYYa7ueOMwwMPrWfGXhbWlcQleum+EPGA8SHnodF\nzybFgHgsdQvHhZ1YRE05tmi2AENHeW5qjOxsl+cYJXWY5giTCJN/5VxX3qUsip+f\njnmXYTczm+/yCFeqSqw6cHoJz47yegNXr4sJUOmQf+imO+HhWgQ9aC4VB7HabJGo\nd3byDYqvpDVcLXeWeQkZ/7YLLydPTf54AFYUUddnCQKBgQD4EiYSxYYcISPOG1b8\n5u4zN50myZYiozeBDx30lIzcV3Nu1hF6zu9B7+jcxDDLbVcdOzUNj4IndXod1pmO\n9zh3j3AjXkcbRdate3heVNg0viNaKM/qkmpGe5LFkrrDuS1y8gZobOjNnGk1idMD\nrlBGtRYLg0XZo3b7NRjVYCqnVQKBgQDCqIVUZjSySrjsw3rFEp7Z5E2OnQ8ytQ4Y\nFUWua8ZFbYAa4OadVbTkBp6q532PzqpgcVF/2TmYJYK8AkbY7hjzCtppGcFiuMUq\nxHkUDKNAC4+rrrRnqzPzsRGduSRALMUsUbWz8oPvP0eytRLsN9q8IfzIMDBNBO8G\nG0pQZktmrwKBgCGFkk+HEZBLiiMX3rFeI2IYacwMAZW8qItwF4Qtbrt3tcmMc+A8\nhmhKmxT6Df3vUI5KqeijM9tRLKdLkISZM7A0Wdrtqn4s+c2HmcRlgrHd37kXOsFf\n96x+ll7MbSB1rYaS3frOfMcME8uATFt6+q4TWl9D5fR6+mEH08tBq4HhAoGAbZtC\naAGczn+wnPB9IpaXh4079n+NXToBk6H2uH3LCLDdn0Tf1du6nWL02Lq8QstVuDRW\nday092y3rnGBvwhiWAfWb7Om5pWvv6MdoiJzkc5wuXUH9A+8kw0zJCJpvRD4fToN\nHCQEEiUJlCDNZOEWczSYB4jKybNre37GW3seHdUCgYEA9MYJ9WcVA9C1oiBwTtgN\nmqqP0Cjgxhor1O8vTlvQctRyvjgtObSY+gS8q2WC6mgJJaHmAXUCFuMuOcs1D5Ju\nEpUNtFvvo9YI6hmPXtpgd7umLAO4DT/oE42JEkJogMqqE9fKmdsRJ2SE+DkWs0lE\n7m9fHCKGmRb0pg8JQivKA+w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "phenix@phenix-302914.iam.gserviceaccount.com",
+  "client_id": "113318454716466049290",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/phenix%40phenix-302914.iam.gserviceaccount.com"
+}
