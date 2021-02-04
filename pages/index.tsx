@@ -13,7 +13,7 @@ export default function Form() {
   const [sent, setSent] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const { register, handleSubmit, watch, errors } = useForm({
-    mode: "onSubmit",
+    mode: "onChange",
     reValidateMode: "onChange",
   });
   console.log("errors", errors);
