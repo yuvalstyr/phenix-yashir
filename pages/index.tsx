@@ -3,17 +3,24 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Box, Button, Grid, Input, Select, Text, jsx } from "theme-ui";
 import useWindowSize from "../lib/useWindows";
+import { ErrorMessage } from "@hookform/error-message";
+import { get } from "react-hook-form";
 /** @jsxRuntime classic */
 /** @jsx jsx */
 
 export default function Form() {
   const { height, width } = useWindowSize();
   const [sent, setSent] = React.useState(false);
-  const { register, handleSubmit, watch, errors } = useForm();
-
+  const [loading, setLoading] = React.useState(false);
+  const { register, handleSubmit, watch, errors } = useForm({
+    mode: "onSubmit",
+    reValidateMode: "onChange",
+  });
+  console.log("errors", errors);
   const isLarge = width >= 650;
   const imageUrl = isLarge ? "bg-large.jpeg" : "bg-phone.png";
   const onSubmit = async (data) => {
+    setLoading(true);
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -22,9 +29,11 @@ export default function Form() {
     const res = await fetch("/api", requestOptions);
     if (res.status === 200) {
       setSent(true);
+    } else {
+      setLoading(false);
     }
   };
-  const phonePerfix = ["050", "052", "053", "054", "057"];
+  const phonePerfix = ["050", "052", "053", "054", "057", "058"];
   return (
     <Box
       sx={{
@@ -98,27 +107,46 @@ export default function Form() {
                     ],
                   }}
                 >
-                  <Input
-                    p={1}
-                    name="phone"
-                    placeholder="מספר"
-                    sx={{ flexGrow: 1 }}
-                    ref={register({ required: true })}
-                  />
-                  <Select
-                    p={1}
-                    sx={{ direction: "ltr" }}
-                    ref={register}
-                    name={"prefix"}
-                  >
-                    {phonePerfix.map((p) => (
-                      <option value={p} key={p}>
-                        {p}
-                      </option>
-                    ))}
-                  </Select>
+                  <Grid>
+                    <Input
+                      p={1}
+                      name="phone"
+                      placeholder="מספר"
+                      type="number"
+                      sx={{ flexGrow: 1 }}
+                      ref={register({ required: true, pattern: /\d{7}$/ })}
+                    />
+                    {errors.phone?.type === "required" && (
+                      <Text sx={{ color: "red", fontWeight: "bold" }}>
+                        שדה חובה
+                      </Text>
+                    )}
+                    {errors.phone?.type === "pattern" && (
+                      <Text sx={{ color: "red", fontWeight: "bold" }}>
+                        רק מספר ללא קידומת (7ספרות)
+                      </Text>
+                    )}
+                  </Grid>
+                  <Grid>
+                    <Select
+                      p={1}
+                      sx={{ direction: "ltr" }}
+                      ref={register}
+                      name={"prefix"}
+                    >
+                      {phonePerfix.map((p) => (
+                        <option value={p} key={p}>
+                          {p}
+                        </option>
+                      ))}
+                    </Select>
+                    {errors.phone?.type === "required" && <Text>_</Text>}
+                    {errors.phone?.type === "pattern" && <Text>_</Text>}
+                  </Grid>
                 </Grid>
-                <Button sx={{ backgrounColor: "#00146C" }}>שלח</Button>
+                <Button sx={{ backgrounColor: "#00146C" }} disabled={loading}>
+                  שלח
+                </Button>
               </Grid>
             )}
             <Box />
