@@ -116,7 +116,7 @@ export default function Form() {
                       sx={{ flexGrow: 1 }}
                       ref={register({
                         required: true,
-                        pattern: /^\d{7}(?:\d{2})?$/,
+                        pattern: /^\d{7}$/,
                       })}
                     />
                     {errors.phone?.type === "required" && (
