@@ -114,7 +114,10 @@ export default function Form() {
                       placeholder="מספר"
                       type="number"
                       sx={{ flexGrow: 1 }}
-                      ref={register({ required: true, pattern: /\d{7}$/ })}
+                      ref={register({
+                        required: true,
+                        pattern: /^\d{7}(?:\d{2})?$/,
+                      })}
                     />
                     {errors.phone?.type === "required" && (
                       <Text sx={{ color: "red", fontWeight: "bold" }}>
