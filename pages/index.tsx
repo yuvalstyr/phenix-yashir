@@ -3,8 +3,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Box, Button, Grid, Input, Select, Text, jsx } from "theme-ui";
 import useWindowSize from "../lib/useWindows";
-import { ErrorMessage } from "@hookform/error-message";
-import { get } from "react-hook-form";
+import * as fbq from "../lib/fpixel";
+
 /** @jsxRuntime classic */
 /** @jsx jsx */
 
@@ -16,7 +16,7 @@ export default function Form() {
     mode: "onChange",
     reValidateMode: "onChange",
   });
-  console.log("errors", errors);
+
   const isLarge = width >= 650;
   const imageUrl = isLarge ? "bg-large.jpeg" : "bg-phone.png";
   const onSubmit = async (data) => {
@@ -29,6 +29,8 @@ export default function Form() {
     const res = await fetch("/api", requestOptions);
     if (res.status === 200) {
       setSent(true);
+      console.log("data", data);
+      fbq.event("ENGAGEMENT", { name: data.name });
     } else {
       setLoading(false);
     }
@@ -48,6 +50,31 @@ export default function Form() {
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
         <title>פניקס מוטורס</title>
+
+        {/* Global Site Code Pixel - Facebook Pixel */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', 211785687293492);
+              `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=211785687293492&ev=PageView&noscript=1`}
+          />
+        </noscript>
       </Head>
 
       <Grid
