@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "theme-ui";
 import theme from "../theme";
+import FacebookPixel from "../components/FacebookPixel";
 
 function MyApp({ Component, pageProps }) {
   return (
